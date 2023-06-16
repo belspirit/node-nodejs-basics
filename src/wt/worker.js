@@ -1,8 +1,8 @@
 import { parentPort, workerData } from "node:worker_threads";
 
-const n = workerData;
+const n = parseInt(workerData);
 
-if (n === undefined) throw new Error("n should be an integer number");
+if (Number.isNaN(n)) throw new Error("n should be an integer number");
 
 // n should be received from main thread
 const nthFibonacci = (n) =>
